@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main] # 如果你的默认分支名是 master，请改为 master
+    branches: [main]
 
 permissions:
   contents: write
@@ -27,5 +27,5 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist # Vite 默认生成的文件夹是 dist
-          branch: gh-pages # 部署到这个分支
+          folder: dist
+          branch: gh-pages
