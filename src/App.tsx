@@ -1,95 +1,63 @@
 import React from 'react';
-import { Mail, Github, Scissors, StickyNote, PenTool, Heart, ArrowRight } from 'lucide-react';
+import { Layout, Rocket, BarChart3, Users, Mail, Github, ArrowRight } from 'lucide-react';
 
 const App = () => {
   return (
-    /* 背景层：占满全屏的桌面质感 */
-    <div className="min-h-screen w-full bg-[#E5E1D8] text-[#333] font-mono flex items-center justify-center p-0 md:p-6">
+    /* 背景层：全屏占满，采用极简主义浅色调 */
+    <div className="min-h-screen w-full bg-[#fafafa] text-slate-900 font-sans flex flex-col items-center">
       
-      {/* 核心画布：自适应屏幕大小，最大宽度限制以保持 PM 的严谨感 */}
-      <div className="w-full h-full min-h-screen md:min-h-[90vh] max-w-[1400px] bg-[#F4F1EA] shadow-[0_0_50px_rgba(0,0,0,0.1)] border-x md:border border-[#d1cdc2] flex flex-col relative overflow-hidden">
+      {/* 1. 居中导航目录 */}
+      <nav className="w-full py-12 flex justify-center z-50">
+        <div className="flex gap-10 text-[11px] font-bold uppercase tracking-[0.3em] text-slate-400">
+          <a href="#home" className="hover:text-blue-600 transition-colors">Home</a>
+          <a href="#work" className="hover:text-blue-600 transition-colors">Portfolio</a>
+          <a href="#about" className="hover:text-blue-600 transition-colors">About</a>
+          <a href="#contact" className="hover:text-blue-600 transition-colors">Contact</a>
+        </div>
+      </nav>
+
+      {/* 2. 主体内容：垂直水平居中 */}
+      <main className="flex-1 flex flex-col items-center justify-center px-6 max-w-5xl text-center">
         
-        {/* 顶部居中导航栏 */}
-        <nav className="w-full py-10 flex flex-col items-center z-10">
-          <div className="text-3xl font-black tracking-[0.2em] uppercase italic mb-6 border-b-4 border-[#333] pb-1">
-            MIA-LU . PM
-          </div>
-          <div className="flex justify-center gap-10 text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">
-            <a href="#" className="hover:text-blue-600 transition-colors">Home</a>
-            <a href="#" className="hover:text-blue-600 transition-colors">Portfolio</a>
-            <a href="#" className="hover:text-blue-600 transition-colors">About</a>
-            <a href="#" className="hover:text-blue-600 transition-colors">Contact</a>
-          </div>
-        </nav>
+        {/* 核心标语 */}
+        <div className="mb-8">
+          <span className="inline-block px-4 py-1.5 mb-6 text-[10px] font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full">
+            Product Manager Portfolio
+          </span>
+          <h1 className="text-6xl md:text-8xl font-extrabold leading-[1.1] mb-8 tracking-tighter text-slate-900">
+            用逻辑定义产品 <br />
+            <span className="text-slate-300 italic">以用户创造价值</span>
+          </h1>
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed font-light">
+            你好，我是 [你的名字]。致力于通过深度洞察与严谨逻辑，打造直觉化且具备商业生命力的数字产品。
+          </p>
+        </div>
 
-        {/* 主体内容区：纵向居中排列 */}
-        <main className="flex-1 flex flex-col items-center justify-center px-6 py-12 relative">
+        {/* 居中的行动按钮 */}
+        <div className="flex flex-col items-center gap-6">
+          <button className="group bg-slate-900 text-white px-10 py-4 rounded-full font-bold hover:bg-blue-600 transition-all flex items-center gap-3 shadow-2xl shadow-slate-200">
+            查看我的作品集
+            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          </button>
           
-          {/* 装饰：散落在画布上的元素 */}
-          <div className="absolute top-10 left-10 opacity-10 -rotate-12 hidden lg:block">
-            <PenTool size={180} />
+          {/* 社交入口 */}
+          <div className="flex gap-8 pt-4">
+            <a href="#" className="text-slate-300 hover:text-slate-900 transition-colors"><Mail size={20} /></a>
+            <a href="#" className="text-slate-300 hover:text-slate-900 transition-colors"><Github size={20} /></a>
           </div>
-          <div className="absolute bottom-10 right-10 opacity-10 rotate-12 hidden lg:block">
-            <StickyNote size={200} />
-          </div>
+        </div>
+      </main>
 
-          {/* Hero Section：视觉焦点 */}
-          <section className="text-center max-w-4xl relative mb-16">
-            {/* 模拟半透明胶带 */}
-            <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-40 h-12 bg-white/30 backdrop-blur-md border border-white/40 rotate-1 flex items-center justify-center pointer-events-none">
-              <span className="text-[9px] tracking-[0.5em] text-slate-400 font-bold uppercase">Work in Progress</span>
-            </div>
+      {/* 3. 底部版权信息 */}
+      <footer className="w-full py-10 flex flex-col items-center border-t border-slate-100">
+        <div className="text-[10px] font-bold tracking-[0.4em] text-slate-300 uppercase">
+          © 2026 Designed with Precision
+        </div>
+      </footer>
 
-            <h1 className="text-6xl md:text-8xl font-black mb-10 leading-[1.05] tracking-tighter">
-              用手作的心<br/>
-              做数字产品
-            </h1>
-            
-            <p className="text-lg md:text-2xl leading-relaxed opacity-60 mb-12 font-medium italic max-w-2xl mx-auto">
-              “Every wireframe is a sketch, every feature is a story. Welcome to my digital craftsmanship.”
-            </p>
-
-            <div className="flex justify-center">
-              <button className="group bg-[#333] text-white px-12 py-5 font-bold rounded-full hover:bg-black transition-all flex items-center gap-4 shadow-xl">
-                查看我的作品集 
-                <div className="bg-white/20 p-1 rounded-full group-hover:translate-x-1 transition-transform">
-                  <ArrowRight size={18}/>
-                </div>
-              </button>
-            </div>
-          </section>
-
-          {/* 分割线 */}
-          <div className="w-full max-w-md h-px border-t-2 border-dashed border-[#d1cdc2] mb-16 relative">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F4F1EA] px-4">
-               <Heart size={20} className="text-red-300 fill-red-300" />
-            </div>
-          </div>
-
-          {/* 个人简介卡片 */}
-          <section className="w-full max-w-2xl bg-white/40 p-10 border border-dashed border-[#d1cdc2] rounded-2xl backdrop-blur-sm">
-             <div className="flex items-center gap-4 mb-6">
-                <span className="w-3 h-3 bg-red-400 rounded-full animate-pulse"></span>
-                <span className="font-black text-xs uppercase tracking-widest opacity-40">Profile Introduction</span>
-             </div>
-             <p className="text-xl md:text-2xl leading-[1.8] font-medium opacity-90 italic">
-                你好，我是 MIA-LU。一名深耕产品定义与用户体验的 PM。我致力于将理性的逻辑架构，转化为感性的交互细节。
-             </p>
-          </section>
-        </main>
-
-        {/* 底部信息栏 */}
-        <footer className="w-full py-12 flex flex-col items-center">
-          <div className="flex gap-12 mb-8">
-            <a href="#" className="opacity-40 hover:opacity-100 transition-opacity"><Mail size={24}/></a>
-            <a href="#" className="opacity-40 hover:opacity-100 transition-opacity"><Github size={24}/></a>
-            <a href="#" className="opacity-40 hover:opacity-100 transition-opacity"><Scissors size={24}/></a>
-          </div>
-          <div className="text-[10px] font-black tracking-[0.4em] opacity-30 uppercase">
-            © 2026 Crafted with Logic & Soul
-          </div>
-        </footer>
-
+      {/* 背景装饰（可选）：极淡的网格线，增加专业感 */}
+      <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[-1]" 
+           style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
       </div>
     </div>
   );
